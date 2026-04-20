@@ -17,7 +17,7 @@ public class Main {
         System.out.println("Area = " + sq.getArea() + " details: " + sq);
         System.out.println("Total instance count is " + Form.getInstanceCount());   // sau tri.getInstanceCount() sau sq.getInstanceCount()
 
-       /* //7.6.2 Password maker singleton
+      /*  //7.6.2 Password maker singleton
         PasswordMaker pm2 = PasswordMaker.getInstance();
         System.out.println("\n7.6.2 a+b) Generated passwords: ");
         System.out.println("1:" + PasswordMaker.getInstance().getPassword());
