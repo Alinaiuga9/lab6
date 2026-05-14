@@ -1,6 +1,6 @@
 package lab7;
 
-public  class Student {
+public class Student {
     private final String name;
     private final int age;
     private final String address;
@@ -13,19 +13,19 @@ public  class Student {
         this.studyGroup = studyGroup;
     }
 
-    public String getName() {
+    public String getNume() {
         return name;
     }
 
-    public int getAge() {
+    public int getVarsta() {
         return age;
     }
 
-    public String getAddress() {
+    public String getAdresa() {
         return address;
     }
 
-    public String getStudyGroup() {
+    public String getGrupa() {
         return studyGroup;
     }
 
@@ -36,10 +36,10 @@ public  class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", address='" + address + '\'' +
-                ", studyGroup='" + studyGroup + '\'' +
+                "nume='" + name + '\'' +
+                ", varsta=" + age +
+                ", adresa='" + address + '\'' +
+                ", grupa='" + studyGroup + '\'' +
                 '}';
     }
 }
