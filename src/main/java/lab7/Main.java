@@ -1,54 +1,42 @@
 package lab7;
 
-import lab7.Circle;
-import lab7.Form;
-import lab7.Square;
-import lab7.Triangle;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        // 7.6.1. Contor instante
-        Triangle tri = new Triangle(1.1F, 2.0F, "red");
-        Circle c = new Circle(1.5F, "yellow");
-        Square sq = new Square(1.2F, "blue");
-        System.out.println("Area = " + tri.getArea()+" details: " + tri);
-        System.out.println("Area = " + c.getArea() + " details: " + c);
-        System.out.println("Area = " + sq.getArea() + " details: " + sq);
-        System.out.println("Total instance count is " + Form.getInstanceCount());   // sau tri.getInstanceCount() sau sq.getInstanceCount()
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Ana", 20, "Str. A", "Nedistribuit"));
+        students.add(new Student("Bogdan", 21, "Str. B", "Nedistribuit"));
+        students.add(new Student("Cristi", 20, "Str. C", "Nedistribuit"));
+        students.add(new Student("Diana", 22, "Str. D", "Nedistribuit"));
+        students.add(new Student("Elena", 21, "Str. E", "Nedistribuit"));
 
-      /*  //7.6.2 Password maker singleton
-        PasswordMaker pm2 = PasswordMaker.getInstance();
-        System.out.println("\n7.6.2 a+b) Generated passwords: ");
-        System.out.println("1:" + PasswordMaker.getInstance().getPassword());
-        System.out.println("2:" + PasswordMaker.getInstance().getPassword());
-        System.out.println("3:" + PasswordMaker.getInstance().getPassword());
-        System.out.println("4:" + pm2.getPassword());
-        System.out.println("5:" + pm2.getPassword());
-        System.out.println("\n7.6.2 c) Number of time getInstance() has been called: "+PasswordMaker.getCallingCounts());
-*/
-    }
-}
+        List<Student> distributedStudents = new ArrayList<>();
+        int mid = (students.size() + 1) / 2;
 
+        for (int i = 0; i < students.size(); i++) {
+            String targetGroup = (i < mid) ? "Grupa 1" : "Grupa 2";
 
+            Student updatedStudent = students.get(i).moveToGroup(targetGroup);
+            distributedStudents.add(updatedStudent);
+        }
 
-/*
-package org.example;
+        System.out.println("Lista dupa impartirea in formatii de studiu egale:");
+        for (Student s : distributedStudents) {
+            System.out.println(s);
+        }
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        System.out.println("\nMutam pe Bogdan din Grupa 1 in Grupa 2:");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Student bogdan = distributedStudents.get(1);
+        Student bogdanMutat = bogdan.moveToGroup("Grupa 2");
+        distributedStudents.set(1, bogdanMutat);
+
+        System.out.println("Lista finala:");
+        for (Student s : distributedStudents) {
+            System.out.println(s);
         }
     }
-/
-
- */
+}
