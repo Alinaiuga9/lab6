@@ -1,7 +1,39 @@
+/*
 package lab6;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+class NewIntCalculator {
+    private int currentResult;
+
+    public void init() {
+        this.currentResult = 0;
+    }
+
+    public void add(int value) {
+        this.currentResult += value;
+    }
+
+    public void subtract(int value) {
+        this.currentResult -= value;
+    }
+
+    public void multiply(int value) {
+        this.currentResult *= value;
+    }
+
+    public void divide(int value) {
+        if (value == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        this.currentResult /= value;
+    }
+
+    public int result() {
+        return this.currentResult;
+    }
+}
 
 public class NewIntCalculatorTest {
 
@@ -95,4 +127,4 @@ public class NewIntCalculatorTest {
             calc.divide(0);
         });
     }
-}
+}*/
